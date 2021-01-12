@@ -11,7 +11,7 @@ CC = i686-w64-mingw32-gcc
 CXX = i686-w64-mingw32-g++
 WINDRES := i686-w64-mingw32-windres
 GIT_TAG := $(shell git describe --abbrev=0 --tags)
-INCFLAGS += -I. -I.. -I../ncbind -Iexternal/netpgpverify
+INCFLAGS += -I. -I.. -I../ncbind -Iexternal/netpgpverify/files
 ALLSRCFLAGS += $(INCFLAGS) -DGIT_TAG=\"$(GIT_TAG)\"
 CFLAGS += -O2 -flto
 CFLAGS += $(ALLSRCFLAGS) -Wall -Wno-unused-value -Wno-format -DNDEBUG -DWIN32 -D_WIN32 -D_WINDOWS 
@@ -34,7 +34,12 @@ LDLIBS += -lws2_32
 	$(WINDRES) $(WINDRESFLAGS) $< $@
 
 DLL_SOURCES := ../tp_stub.cpp ../ncbind/ncbind.cpp main.cpp krpgp.rc
-NETPGPVERIFY_SOURCES := external/netpgpverify/b64.c external/netpgpverify/bignum.c external/netpgpverify/bufgap.c external/netpgpverify/digest.c external/netpgpverify/libverify.c external/netpgpverify/main.c external/netpgpverify/misc.c external/netpgpverify/pgpsum.c external/netpgpverify/rsa.c external/netpgpverify/bzlib.c external/netpgpverify/zlib.c external/netpgpverify/sha1.c external/netpgpverify/sha2.c external/netpgpverify/md5c.c external/netpgpverify/rmd160.c external/netpgpverify/tiger.c
+NETPGPVERIFY_SOURCES := 
+NETPGPVERIFY_SOURCES += external/netpgpverify/files/b64.c external/netpgpverify/files/bignum.c external/netpgpverify/files/bufgap.c external/netpgpverify/files/digest.c
+NETPGPVERIFY_SOURCES += external/netpgpverify/files/libverify.c external/netpgpverify/files/misc.c
+NETPGPVERIFY_SOURCES += external/netpgpverify/files/pgpsum.c external/netpgpverify/files/rsa.c
+NETPGPVERIFY_SOURCES += external/netpgpverify/files/bzlib.c external/netpgpverify/files/zlib.c
+NETPGPVERIFY_SOURCES += external/netpgpverify/files/sha1.c external/netpgpverify/files/sha2.c external/netpgpverify/files/md5c.c external/netpgpverify/files/rmd160.c
 
 SOURCES := $(DLL_SOURCES) $(NETPGPVERIFY_SOURCES)
 OBJECTS := $(SOURCES:.c=.o)
