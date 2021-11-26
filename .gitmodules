@@ -1,3 +1,8 @@
 [submodule "external/netpgpverify"]
 	path = external/netpgpverify
-	url = ../netpgpverify
+	url = https://github.com/uyjulian/netpgpverify.git
+	ignore = dirty
+[submodule "external/ncbind"]
+	path = external/ncbind
+	url = https://github.com/uyjulian/ncbind.git
+	branch = mingw
