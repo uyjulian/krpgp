@@ -14,8 +14,8 @@ LDLIBS += -lws2_32
 
 PROJECT_BASENAME = krpgp
 
-RC_FILEDESCRIPTION = PGP interface for TVP(KIRIKIRI) (2/Z)
-RC_LEGALCOPYRIGHT = Copyright (C) 2019-2019 Julian Uy; This product is licensed under the MIT license.
-RC_PRODUCTNAME = PGP interface for TVP(KIRIKIRI) (2/Z)
+RC_DESC ?= PGP interface for TVP(KIRIKIRI) (2/Z)
+RC_PRODUCTNAME ?= PGP interface for TVP(KIRIKIRI) (2/Z)
+RC_LEGALCOPYRIGHT ?= Copyright (C) 2019-2019 Julian Uy; This product is licensed under the MIT license.
 
 include external/ncbind/Rules.lib.make
